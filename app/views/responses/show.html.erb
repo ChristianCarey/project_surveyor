@@ -1,0 +1,9 @@
+<h1>Responses for <%= @response.survey. title %></h1>
+
+<ul>
+  <% @response.answers.each do |answer| %>
+    <li>
+      <%= render partial: answer_partial(answer), locals: { answer: answer } %>
+    </li>
+  <% end %>
+</ul>

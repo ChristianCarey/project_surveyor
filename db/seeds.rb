@@ -64,6 +64,7 @@ Response.all.each do |response|
       value = rand(question.selection.min..question.selection.max)
       NumericAnswer.create(response_id: response.id,
                            selection_id: question.selection.id,
+                           selection_type: RangeSelection,
                            value: value )
     end
   end

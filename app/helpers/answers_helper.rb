@@ -6,4 +6,12 @@ module AnswersHelper
       return 'answers/range_form'
     end        
   end
+
+  def answer_partial(answer)
+    if answer.is_a? MultipleChoiceAnswer
+      return 'answers/multiple_choice_answer'
+    elsif answer.is_a? NumericAnswer
+      return 'answers/numeric_answer'
+    end 
+  end
 end

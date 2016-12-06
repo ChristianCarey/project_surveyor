@@ -1,4 +1,4 @@
 class RangeSelection < ApplicationRecord
   belongs_to :question
-  has_many   :answers, class_name: 'NumericAnswer', foreign_key: 'selection_id'
+  has_many   :answers, as: :selection
 end
