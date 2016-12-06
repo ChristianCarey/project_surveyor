@@ -1,13 +1,16 @@
 <h1>Respond to <%= @survey.title %></h1>
 <%= form_for [@survey, @response] do |response_fields| %>
+  <%= render 'shared/error_messages', object: response_fields.object %>
   <ul>
     <% @survey.questions.each_with_index do |question, index| %>
       <li>
         <%= render partial:  answer_form_for(question), 
                    locals: { response_fields: response_fields,
+                             response: @response,
                              selection: question.selection,
                              index: index } %>
       </li>
     <% end %>
   </ul>
+  <%= response_fields.submit%>
 <% end %>

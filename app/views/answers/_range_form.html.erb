@@ -1,5 +1,6 @@
 <%= response_fields.fields_for :numeric_answers, 
                                NumericAnswer.new do |answer_fields| %>
+  <%= answer_fields.hidden_field :selection_id, value: selection.id %>
   <%= answer_fields.label :value, selection.question.prompt %>
   <%= answer_fields.number_field :value, id: "slider-input-#{index}" , readonly: true %>
   <div id="slider-<%= index %>"></div>
@@ -8,17 +9,18 @@
 <script>
 
 $(document).ready(function() {
-      var slider_control = "#slider-<%= index %>";
-      var slider_input = "#slider-input-<%= index %>";
-      var min = <%= selection.min %>;
-      var max = <%= selection.max %>;
-      var slider = $(slider_control).slider({
-        min: min,
-        max: max,
-        value: 4,
-        slide: function( event, ui ) {
-          $(slider_input).val(ui.value);
-        }
+    var slider_control = "#slider-<%= index %>";
+    var slider_input = "#slider-input-<%= index %>";
+    var min = <%= selection.min %>;
+    var max = <%= selection.max %>;
+    var slider = $(slider_control).slider({
+      min: min,
+      max: max,
+      value: min,
+      slide: function( event, ui ) {
+        $(slider_input).val(ui.value);
+      }
     });
+    $(slider_input).val(min);
   });
 </script>

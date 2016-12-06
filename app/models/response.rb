@@ -1,7 +1,7 @@
 class Response < ApplicationRecord
   belongs_to :survey
-  has_many   :numeric_answers,         dependent: :destroy
-  has_many   :multiple_choice_answers, dependent: :destroy
+  has_many   :numeric_answers,         dependent: :destroy, inverse_of: :response
+  has_many   :multiple_choice_answers, dependent: :destroy, inverse_of: :response
   accepts_nested_attributes_for :numeric_answers
   accepts_nested_attributes_for :multiple_choice_answers
 
