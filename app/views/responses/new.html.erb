@@ -1,0 +1,13 @@
+<h1>Respond to <%= @survey.title %></h1>
+<%= form_for [@survey, @response] do |response_fields| %>
+  <ul>
+    <% @survey.questions.each_with_index do |question, index| %>
+      <li>
+        <%= render partial:  answer_form_for(question), 
+                   locals: { response_fields: response_fields,
+                             selection: question.selection,
+                             index: index } %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>

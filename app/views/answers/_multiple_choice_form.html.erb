@@ -1,0 +1,9 @@
+<%= response_fields.fields_for :multiple_choice_answers, 
+                               MultipleChoiceAnswer.new do |answer_fields| %>
+  <%= answer_fields.label :option_id, selection.question.prompt %>
+  <%= answer_fields.collection_radio_buttons(:option_id, selection.options, :id, :value) do |b| %>
+    <div class="radio">
+       <%= b.label { "#{b.radio_button} #{b.text}".html_safe }  %>
+    </div>
+  <% end %>
+<% end %>

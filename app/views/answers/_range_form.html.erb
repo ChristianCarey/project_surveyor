@@ -1,0 +1,5 @@
+<%= response_fields.fields_for :numeric_answers, 
+                               NumericAnswer.new do |answer_fields| %>
+  <%= answer_fields.label :value, selection.question.prompt %>
+  <%= answer_fields.range_field(:value, in: selection.min..selection.max) %>
+<% end %>

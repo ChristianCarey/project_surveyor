@@ -1,0 +1,10 @@
+<li>
+  <%= question.prompt %>
+  <% if question.selection_class == MultipleChoiceSelection %>
+    <ul>
+      <% question.selection.options.each do |option| %>
+        <li><%= option.value %> -- <%= pluralize(option.answers.count, "answer") %></li>
+      <% end %>
+    </ul>
+  <% end %>
+</li>

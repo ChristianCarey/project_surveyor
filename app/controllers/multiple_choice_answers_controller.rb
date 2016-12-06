@@ -1,0 +1,2 @@
+class MultipleChoiceAnswersController < ApplicationController
+end

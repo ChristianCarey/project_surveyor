@@ -1,0 +1,5 @@
+<tr>
+  <td><%= link_to survey.title, survey %></td>
+  <td><%= survey.responses.count %></td>
+  <td><%= link_to 'Take Survey', new_survey_response_path(survey), class: 'btn btn-primary' %></td>
+</tr>
