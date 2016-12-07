@@ -1,2 +1,0 @@
-class NumericAnswersController < ApplicationController
-end

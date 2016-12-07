@@ -4,10 +4,15 @@ SelectionType.destroy_all
 MULTIPLIER = 1
 SURVEY_NUM = 20
 QUESTIONS_PER_SURVEY = 15
-SELECTION_TYPES = ['MultipleChoiceSelection', 'RangeSelection']
+SELECTION_TYPES = [
+                    { class_name: 'MultipleChoiceSelection', 
+                      string_version: 'Multiple Choice' }, 
+                    { class_name: 'RangeSelection', 
+                      string_version: 'Number Range'}
+                  ]
 
-SELECTION_TYPES.each do |type|
-  SelectionType.create(class_name: type)
+SELECTION_TYPES.each do |params|
+  SelectionType.create(params)
 end
 
 (SURVEY_NUM * MULTIPLIER).times do 

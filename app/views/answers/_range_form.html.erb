@@ -3,7 +3,7 @@
   <%= answer_fields.hidden_field :selection_id, value: selection.id %>
   <%= answer_fields.hidden_field :selection_type, value: "RangeSelection" %>
   <%= answer_fields.label :value, selection.question.prompt %>
-  <%= answer_fields.number_field :value, id: "slider-input-#{index}" , readonly: true %>
+  <%= answer_fields.number_field :value, id: "slider-input-#{index}", class: 'slider-input' , readonly: true %>
   <div id="slider-<%= index %>"></div>
 <% end %>
 

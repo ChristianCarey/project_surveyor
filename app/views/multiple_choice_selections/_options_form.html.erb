@@ -1,0 +1,5 @@
+<%= selection_fields.fields_for :options, Option.new do |option_fields| %>
+  <div class="form-group">
+    <%= option_fields.text_field :value, class: "form-control" %>
+  </div>
+<% end %>

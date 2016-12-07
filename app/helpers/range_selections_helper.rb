@@ -1,0 +1,2 @@
+module RangeSelectionsHelper
+end

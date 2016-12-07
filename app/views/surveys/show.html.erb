@@ -6,4 +6,5 @@
       <%= render partial: 'shared/question', locals: { question: question } %>
     <% end %>
   </ul>
+  <%= link_to 'Add a question', new_survey_question_path(@survey), class: 'btn btn-primary' %>
 </div>

@@ -1,0 +1,23 @@
+<div class="col-md-8 col-md-offset-2">
+<h3><%= @selection.question.prompt %></h3>
+    <% if @selection.options.any?%>
+      <label>Options</label>
+      <ul>
+        <% @selection.options.each_with_index do |option, index| %>
+          <% unless index == @selection.options.length - 1 %>
+            <li><%= option.value %></li>
+          <% end %>
+        <% end %>
+      </ul>
+    <% end %>
+    <%= form_for [@selection, @option] do |f| %>
+      <%= f.hidden_field :multiple_choice_selection_id, value: @selection.id %>
+      <div class="form-group">
+        <%= f.label :value, 'Add an option.' %>
+        <%= f.text_field :value, class: "form-control" %>
+      </div>
+      <%= f.submit 'Add option', class: 'btn btn-primary' %>
+    <% end %>
+  <br>
+  <%= link_to 'Add another question', new_survey_question_path(@selection.question.survey)%>
+</div>

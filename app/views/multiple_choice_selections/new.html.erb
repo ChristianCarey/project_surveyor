@@ -1,0 +1,12 @@
+<div class="col-md-8 col-md-offset-2">
+<h3><%= @question.prompt %></h3>
+  <%= form_for [@question, @selection] do |f| %>
+    <%= f.hidden_field :question_id, value: @question.id %>
+    <div class="form-group">
+      <%= f.check_box  :multiple %>
+      <%= f.label :multiple, "A user can select multiple values" %>
+    </div>
+    <%= f.submit 'Next', class: 'btn btn-primary' %>
+  <% end %>
+  <br>
+</div>

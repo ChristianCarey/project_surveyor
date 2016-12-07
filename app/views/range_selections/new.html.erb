@@ -1,0 +1,15 @@
+<div class="col-md-8 col-md-offset-2">
+<h3><%= @question.prompt %></h3>
+  <%= form_for [@question, @selection] do |f| %>
+    <%= f.hidden_field :question_id, value: @question.id %>
+    <div class="form-group">
+      <%= f.label :min, "Minimum Value" %>
+      <%= f.number_field  :min %>
+    </div>
+    <div class="form-group">
+      <%= f.label :max, "Maximum Value" %>
+      <%= f.number_field  :max %>
+    </div>
+    <%= f.submit 'Create question', class: 'btn btn-primary' %>
+  <% end %>
+</div>
